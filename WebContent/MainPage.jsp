@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE hmtl>
 <html>
   <head>
@@ -49,6 +50,12 @@
   </head>
 
   <body>
+  
+  <c:if test="${Login_Status == 'Success'}"> 
+  <script>alert("Login Successful !!");</script>
+  <c:set var="Login_Status" scope="session" value="null"/>
+  </c:if>
+  
     <div class="container">
       <div class="row">
      
