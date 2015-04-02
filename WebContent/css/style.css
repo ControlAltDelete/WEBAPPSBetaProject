@@ -1,0 +1,259 @@
+body
+{
+  font-family: Arial;
+}
+
+input
+{
+  border-radius: 3px;
+  border: 1px solid rgb(0, 153, 204);
+  height: 30px;
+}
+
+a
+{
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(0, 153, 204);
+}
+
+#search{
+       position: relative;
+       width:30px;
+       height:20px;
+}
+   
+
+#searchBar{
+        position: relative;
+        top: 40px;
+        padding: 5px;
+    }
+#logo
+{
+  position: relative;
+  left: 35%;
+}
+
+#launch
+{
+  position: relative;
+  left:700px;
+}
+
+
+
+.topDiv
+{
+  position: relative;
+  top: 20px;
+  left: 30px;
+  height: 10px;
+  font-size: 40px;
+}
+
+.large
+{
+  border-radius: 3px;
+  border: 1px solid rgb(0, 153, 204);
+  height: 130px;
+}
+
+
+#loginFormDiv
+{
+  position: relative;
+  height: 28%x;
+  width: 35%;
+  top: 2%;
+  left: 32.5%;
+
+  border-radius: 5px;
+}
+
+#loginForm
+{
+  position: relative;
+  top: 65px;
+  left: 80px;
+ 
+  color: black;
+}
+
+
+#loginButton
+{
+  position: relative;
+  height : 30px;
+  width : 80px;
+  background-color: rgb(0, 153, 204);
+  color: white;
+  left: 80px;
+  border-radius: 2px;
+  border: 1px solid rgb(0, 153, 204);
+  margin-right: 5px;
+}
+
+#signupFormDiv
+{
+  position: relative;
+  height: 450px;
+  width: 350px;
+  top: 10px;
+  left: 37%;
+
+  background-color: rgb(243,243,243);
+  border-radius: 5px;
+}
+
+#signupForm
+{
+  position: relative;
+  top: 65px;
+  left: 80px;
+ 
+  color: black;
+}
+
+#signupButton
+{
+  position: relative;
+
+  background-color: rgb(0, 153, 204);
+  color: white;
+  height : 30px;
+  width : 80px;
+  left: 120px;
+  border-radius: 2px;
+  border: 1px solid rgb(0, 153, 204);
+  margin-right: 5px;
+}
+
+#browseButton
+{
+  width: 60px;
+  position: relative;
+  background-color: rgb(0, 153, 204);
+  color: white;
+  left: 1px;
+}
+
+#profileDiv
+{
+  position: relative;
+  height: 350px;
+  width: 600px;
+  top: 50px;
+  left: 37%;
+
+  background-color: rgb(243,243,243);
+  border-radius: 5px;
+}
+
+#profileContents
+{
+  position: relative;
+  top: 10px;
+  left: 10px;
+  color: black;
+  font-size: 30px
+}
+
+#usernameDiv
+{
+  position: relative;
+  height: 50px;
+  width: 200px;
+  top: 25px;
+  left: 37%;
+
+  background-color: rgb(0, 153, 204);
+  border-radius: 5px;
+}
+
+#usernameContent
+{
+  position: relative;
+  left: 30px;
+  top: 5px;
+  color: white;
+  font-size: 30px
+}
+
+#settingDiv
+{
+  position: relative;
+  top: 75px;
+  left: 30px;
+ 
+  color: black;
+}
+
+#top{
+}
+
+.left{
+        float:left;
+  }
+  
+  .right{
+        float:right;
+  }
+
+#right{
+        position: relative;
+        float:right;
+}
+    
+    
+#sBar{
+        position: relative;
+        width:500px;
+        height:20px;
+}
+    
+
+
+    
+#Requestimg
+    {
+      position: relative;
+      top: 30px;
+        
+    }
+
+    #logout{
+
+        font: bold 12px/15px Arial,sans-serif;
+        border-radius: 10px;
+        padding: 10px;
+        width: 80px;
+        height: 40px;
+        margin: 0px 0px 5px 0px;
+        }
+		
+ul {
+		list-style: none;
+	}
+
+	.menu > li {
+	}
+	.menu #profile {
+		border: 0;
+		background: transparent;
+		cursor: pointer;
+	}
+	.menu #profile:hover,
+	.menu #profile:focus {
+		outline: 0;
+		text-decoration: underline;
+	}
+
+	.submenu {
+		display: none;
+		padding: 10px;
+	}
+	.menu #profile:focus + .submenu,
+	.submenu:hover {
+		display: block;
+	}
