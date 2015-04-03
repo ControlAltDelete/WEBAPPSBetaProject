@@ -40,7 +40,7 @@ public class Database {
 		try
 		{
 		  
-			
+			connect = DriverManager.getConnection(connection, user, pass);
 		  ResultSet resultSet = stat.executeQuery(queryy);
 		  
 		  while(resultSet.next())
@@ -68,6 +68,7 @@ public class Database {
 		
 		try
 		{
+			connect = DriverManager.getConnection(connection, user, pass);
 		  stat.executeUpdate(queryy);
 		  
 		  connect.close();
@@ -83,14 +84,14 @@ public class Database {
 	  
 	  public ArrayList<User> getDuplicate(String email) throws ClassNotFoundException
 	  {
-			
+		
 		ArrayList<User> results = new ArrayList<User>();
 		String queryy = "select * from user where email = '" + email + "'";
 		//code for accessing db
 		
 		try
 		{
-		  
+			connect = DriverManager.getConnection(connection, user, pass);
 		  
 		  ResultSet resultSet = stat.executeQuery(queryy);
 		  
