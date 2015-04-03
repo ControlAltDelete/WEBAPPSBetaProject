@@ -1,6 +1,7 @@
 package src.Controller;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -14,16 +15,17 @@ import service.Database;
 import src.Model.User;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class RequestController
  */
-@WebServlet("/LoginController")
-public class LoginController extends HttpServlet {
+@WebServlet("/RequestController")
+public class RequestController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public RequestController() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -38,36 +40,26 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		HttpSession session = request.getSession();
-		String email = request.getParameter("inputEmail");
-		String password = request.getParameter("inputPassword");
+		String title = request.getParameter("titleArea");
+		String description = request.getParameter("descArea");
+		String tag = request.getParameter("tagArea");
 		
-		//Store class is SIMULATION OF DATABASE
 		Database store = new Database();
 		
-		try
-		{
-		  store.initialize();
-		  ArrayList<User> matchItem = store.getLogin(email,password);
-		  
-		  if(matchItem.size() == 1)
-		  {
-			  System.out.println("Login successful!");
-			  session.setAttribute("Login_Status","Success") ;
-			  session.setAttribute("email",email);
-			  response.sendRedirect("MainPage.jsp");
-		  }
-		  else
-		  {
-			  System.out.println("Login failed");
-			  session.setAttribute("Login_Status","Failed") ;
-			  response.sendRedirect("index.jsp");
-		  }
-		}
-		
-		catch(ClassNotFoundException e)
-		{
+		try {
+			store.initialize();
+			
+			String email = (String) session.getAttribute("email");
+			int error = store.getRequest(title,description,tag,email);
+			
+			if(error == 1)
+			{
+				session.setAttribute("Request_Status","Success");
+				response.sendRedirect("MainPage.jsp");
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE hmtl>
 <html>
   <head>
@@ -48,7 +49,10 @@
         </style>
   </head>
 
+
+
   <body>
+  
     <div class="container">
       <div class="column">
      
@@ -63,19 +67,19 @@
           <p class ="lead">REQUEST YOUR OWN SURGERY</p>
           
           <div class="well bs-component">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action = "RequestController" method = "POST">
               <fieldset>
   	            <div class="form-group">
                   <label for="titleArea" class="col-lg-2 control-label">Title of request</label>
                     <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" id="titleArea"></textarea>
+                      <textarea class="form-control" rows="3" name="titleArea"></textarea>
                     </div>
                  </div>
                  
                  <div class="form-group">
                   <label for="descArea" class="col-lg-2 control-label">Description</label>
                     <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" id="descArea"></textarea>
+                      <textarea class="form-control" rows="3" name="descArea"></textarea>
                     </div>
                  </div>
 
@@ -84,20 +88,20 @@
                   
                   <div class="col-lg-10">
                     <input type="text" readonly class="form-control floating-label" placeholder="Browse...">
-                    <input type="file" id="inputFile" multiple>
+                    <input type="file" name="inputFile" multiple>
                   </div>
                 </div>
                
                <div class="form-group">
                   <label for="tagArea" class="col-lg-2 control-label">Tag</label>
                     <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" id="tagArea"></textarea>
+                      <textarea class="form-control" rows="3" name="tagArea"></textarea>
                     </div>
                  </div>
 
                 <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">
-                    <a href="MainPage.jsp" button class="btn btn-primary">Submit</a>
+                    <input type = "submit"></input>
                   </div>
                 </div>
           
