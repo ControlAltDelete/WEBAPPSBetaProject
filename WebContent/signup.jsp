@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE hmtl>
 <html>
   <head>
@@ -49,6 +51,17 @@
   </head>
 
   <body>
+   
+   <c:if test="${Registration_Status == 'Duplicate'}"> 
+   <script>alert("Email exist!");</script>
+   <c:set var="Registration_Status" scope="session" value="null"/>
+   </c:if>
+   
+   <c:if test="${Registration_Status == 'IncorrectPassword'}"> 
+   <script>alert("Password doesn't match!");</script>
+   <c:set var="Registration_Status" scope="session" value="null"/>
+   </c:if>
+   
     <div class="container">
       <div class="row">
      
@@ -59,13 +72,13 @@
         <div class="col-lg-6">
           <h3 class="lead">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  CREATE YOUR VIRTUAL EXISTENCE</h3>
           <div class="well bs-component">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action = "RegistrationController" method = "POST">
               <fieldset>
                 <div class="form-group">
                   <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                   
                   <div class="col-lg-10">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    <input type="email" class="form-control" name="inputEmail" placeholder="Email">
                   </div>
                 </div>
 
@@ -73,28 +86,28 @@
                   <label for="inputNickname" class="col-lg-2 control-label">Nickname</label>
                   
                   <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputNickname" placeholder="Nickname">
+                    <input type="text" class="form-control" name="inputNickname" placeholder="Nickname">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="inputPassword" class="col-lg-2 control-label">Password</label>
                   <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <input type="password" class="form-control" name="inputPassword" placeholder="Password">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="cnfrmPassword" class="col-lg-2 control-label">Confirm Password</label>
                   <div class="col-lg-10">
-                    <input type="password" class="form-control" id="cnfrmPassword" placeholder="Confirm Password">
+                    <input type="password" class="form-control" name="cnfrmPassword" placeholder="Confirm Password">
                   </div>
                 </div>
                 
                 <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">
-                    <a href= "index.html" button class="btn btn-default">Cancel</a>
-                    <a href="index.html" button class="btn btn-primary" id="Signup">Submit</a>
+                    <a href= "index.jsp" button class="btn btn-default">Cancel</a>
+                    <input type = "submit" class="btn btn-primary"></input>
                   </div>
                 </div>
 

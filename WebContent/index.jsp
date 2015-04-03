@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE hmtl>
 <html>
   <head>
@@ -49,6 +50,17 @@
   </head>
 
   <body>
+  
+  <c:if test="${Login_Status == 'Failed'}"> 
+  <script>alert("Login Failed !!");</script>
+  <c:set var="Login_Status" scope="session" value="null"/>
+  </c:if>
+  
+  <c:if test="${Registration_Status == 'Success'}"> 
+  <script>alert("Registration Successful!!");</script>
+  <c:set var="Registration_Status" scope="session" value="null"/>
+  </c:if>
+  
     <div class="container">
       <div class="column">
      
@@ -63,20 +75,20 @@
           <p class ="lead">You Only Live Online<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp YOLO</p>
           
           <div class="well bs-component">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action = "LoginController" method = "POST">
               <fieldset>
   	            <div class="form-group">
                   <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                   
                   <div class="col-lg-10">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    <input type="email" class="form-control" name="inputEmail" placeholder="Email">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="inputPassword" class="col-lg-2 control-label">Password</label>
                   <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <input type="password" class="form-control" name="inputPassword" placeholder="Password">
                 
                     <div class="checkbox">
                       <label>
@@ -89,8 +101,8 @@
 
                 <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">
-                    <a href="signup.html" button class="btn btn-default" id="Signup">Register</a>
-                    <a href= button class="btn btn-primary">Submit</a>
+                    <a href="signup.jsp" button class="btn btn-default" id="Signup">Register</a>
+                    <input type = "submit" class="btn btn-primary"></input>
                   </div>
                 </div>
           
