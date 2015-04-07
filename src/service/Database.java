@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -34,7 +35,7 @@ public class Database {
 	  {
 			
 		ArrayList<User> results = new ArrayList<User>();
-		String queryy = "select * from user where username = '" + query + "' or email ='" + query + "' and password = '" + query2 + "'";
+		String queryy = "select * from user where email ='" + query + "' and password = '" + query2 + "'";
 		//code for accessing db
 		
 		try
@@ -110,4 +111,33 @@ public class Database {
 			
 		return results;
 	  }
+	  
+	  public int getRequest(String title,String description,String tag,String email) throws ClassNotFoundException
+	  {
+
+		java.util.Calendar cal = java.util.Calendar.getInstance();
+		java.util.Date utilDate = cal.getTime();
+		java.sql.Date sqlDate = new Date(utilDate.getTime());  
+		  
+		String queryy = "insert into request (title,description,tag,date,userID) values ('" 
+						+ title + "','" + description + "','" + tag + "','" + sqlDate
+						+ "'," + "(SELECT userID from user WHERE email='" + email + "'));";
+		//code for accessing db
+		
+		try
+		{
+			connect = DriverManager.getConnection(connection, user, pass);
+			stat.executeUpdate(queryy);
+		  
+			connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+			
+		return 1;
+	  }
+	  
 }

@@ -56,6 +56,11 @@
   <c:set var="Login_Status" scope="session" value="null"/>
   </c:if>
   
+  <c:if test="${Request_Status == 'Success'}"> 
+  <script>alert("Request Successful !!");</script>
+  <c:set var="Request_Status" scope="session" value="null"/>
+  </c:if>
+  
     <div class="container">
       <div class="row">
      
@@ -78,7 +83,7 @@
      
       <div class="col-lg-6 col-md-6 col-sm-6" >
       <br><br><br><br>
-         <img src="image/Request.jpg" width= "150" height = "150"  >
+         <a href = "request.jsp"><img src="image/Request.jpg" width= "150" height = "150"  ></a>
          <br><br><br><br><br><br><br><br><br>
          
           <h1 class="bs-component">
