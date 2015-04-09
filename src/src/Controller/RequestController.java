@@ -20,7 +20,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import service.*;
-import src.Model.User;
 
 /**
  * Servlet implementation class RequestController
