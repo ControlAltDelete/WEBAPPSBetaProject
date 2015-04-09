@@ -63,7 +63,7 @@
                   <label for="inputPass" class="col-lg-2 control-label">Current password</label>
                   
                   <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputPass" placeholder="Your current password here">
+                    <input type="password" class="form-control" name="inputPass" placeholder="Your current password here">
                   </div>
                 </div>
                 
@@ -71,14 +71,14 @@
                   <label for="inputNewPass" class="col-lg-2 control-label">New password</label>
                   
                   <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputNewPass" placeholder="Your new password here">
+                    <input type="password" class="form-control" name="inputNewPass" placeholder="Your new password here">
                   </div>
                 </div>
                 
                 <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">
                     <a href= "settings.jsp" button class="btn btn-default">Cancel</a>
-                    <a href="settings.jsp" button class="btn btn-primary" id="Signup">Submit</a>
+                    <input type = "submit"></input>
                   </div>
                 </div>
 

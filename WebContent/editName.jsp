@@ -60,17 +60,25 @@
             <form class="form-horizontal" action = "EditNameController" method = "POST">
               <fieldset>
                 <div class="form-group">
+                  <label for="inputName" class="col-lg-2 control-label">Current name</label>
+                  
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" name="inputName" placeholder="Your name here">
+                  </div>
+                </div>
+                
+                <div class="form-group">
                   <label for="inputName" class="col-lg-2 control-label">New name</label>
                   
                   <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputName" placeholder="Your new name here">
+                    <input type="text" class="form-control" name="inputNewName" placeholder="Your new name here">
                   </div>
                 </div>
                 
                 <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">
                     <a href= "settings.jsp" button class="btn btn-default">Cancel</a>
-                    <a href="settings.jsp" button class="btn btn-primary" id="Signup">Submit</a>
+                    <input type = "submit"></input>
                   </div>
                 </div>
 

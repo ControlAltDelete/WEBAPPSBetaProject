@@ -36,7 +36,7 @@ public class EditEmailController extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			String email = request.getParameter("inputEmail");
-			String password = request.getParameter("inputPassword");
+			String Newemail = request.getParameter("inputNewEmail");
 			
 			//Store class is SIMULATION OF DATABASE
 			Database store = new Database();
@@ -44,23 +44,24 @@ public class EditEmailController extends HttpServlet {
 			try
 			{
 			  store.initialize();
-			  ArrayList<User> matchItem = store.getLogin(email,password);
 			  
-			  if(matchItem.size() == 1)
+			  int error= store.EditEmail(email,Newemail);
+			  
+			  
+			  if(error == 1)
 			  {
-				  System.out.println("Login successful!");
-				  session.setAttribute("Login_Status","Success") ;
-				  session.setAttribute("email",email);
-				  response.sendRedirect("MainPage.jsp");
+					session.setAttribute("Change_Status","Success") ;
+					response.sendRedirect("settings.jsp");
 			  }
 			  else
 			  {
-				  System.out.println("Login failed");
-				  session.setAttribute("Login_Status","Failed") ;
-				  response.sendRedirect("index.jsp");
+
+				  System.out.println(error);
+				  System.out.println("Change failed");
+				  session.setAttribute("Change_Status","Failed") ;
+				  response.sendRedirect("settings.jsp");
 			  }
 			}
-			
 			catch(ClassNotFoundException e)
 			{
 				e.printStackTrace();

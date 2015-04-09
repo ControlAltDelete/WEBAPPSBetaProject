@@ -63,21 +63,21 @@
                   <label for="inputEmail" class="col-lg-2 control-label">Current email</label>
                   
                   <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputEmail" placeholder="Your new email here">
+                    <input type="text" class="form-control" name="inputEmail" placeholder="Your email here">
                   </div>
                  </div> 
                  <div class="form-group"> 
                   <label for="inputNewEmail" class="col-lg-2 control-label">New email</label>
                   
                   <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputEmail" placeholder="Your new email here">
+                    <input type="text" class="form-control" name="inputNewEmail" placeholder="Your new email here">
                   </div>
                 </div>
                 
                 <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">
                     <a href= "settings.jsp" button class="btn btn-default">Cancel</a>
-                    <a href="settings.jsp" button class="btn btn-primary" id="Signup">Submit</a>
+                    <input type = "submit"></input>
                   </div>
                 </div>
 

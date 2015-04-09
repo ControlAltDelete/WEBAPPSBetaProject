@@ -60,7 +60,72 @@ public class Database {
 		return results;
 	  }
 	  
+	  public int EditEmail(String query, String Newemail) throws ClassNotFoundException
+	  {
+		
+		String update = "UPDATE user SET email='"+ Newemail +"' WHERE email='"+ query +"'";
+		try
+		{
+		  
+		  connect = DriverManager.getConnection(connection, user, pass);
+		  stat.executeUpdate(update);
+		  
+		  
+		  connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+			
+		return 1;
+	  }
 	  
+	  
+	  public int EditName(String query, String Newname) throws ClassNotFoundException
+	  {
+		
+		String update = "UPDATE user SET nickName='"+ Newname +"' WHERE nickName='"+ query +"'";
+		try
+		{
+		  
+		  connect = DriverManager.getConnection(connection, user, pass);
+		  stat.executeUpdate(update);
+		  
+		  
+		  connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+			
+		return 1;
+	  }
+	  
+	  public int EditPassword(String query, String NewPassword) throws ClassNotFoundException
+	  {
+		
+		String update = "UPDATE user SET password='"+ NewPassword +"' WHERE password='"+ query +"'";
+		try
+		{
+		  
+		  connect = DriverManager.getConnection(connection, user, pass);
+		  stat.executeUpdate(update);
+		  
+		  
+		  connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+			
+		return 1;
+	  }
 	  
 	  public int getRegistration(String email,String nickname,String password) throws ClassNotFoundException
 	  {
