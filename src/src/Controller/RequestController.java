@@ -43,7 +43,7 @@ public class RequestController extends HttpServlet {
 		HttpSession session = request.getSession();
 		String title = request.getParameter("titleArea");
 		String description = request.getParameter("descArea");
-		String tag = request.getParameter("tagArea");
+		String tag = request.getParameter("tagLabel");
 		
 		Database store = new Database();
 		

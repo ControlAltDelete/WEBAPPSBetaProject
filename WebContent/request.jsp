@@ -45,8 +45,21 @@
             }
             .icon-preview:hover i { color: #4285f4; }
             .icon-preview:hover span { display: block; cursor: text; }
-
+			
+			#tagLabel{
+				overflow-y: auto;
+			}
         </style>
+        
+        <script>
+        		function add()
+        		{
+        			var x = document.getElementById("tag").value;
+        			var y = document.getElementById("tagLabel");
+
+        			y.value = y + x;
+        		}
+        </script>
   </head>
 
 
@@ -93,11 +106,19 @@
                 </div>
                
                <div class="form-group">
-                  <label for="tagArea" class="col-lg-2 control-label">Tag</label>
+                  <label for="tagArea" class="col-lg-2 control-label">Tag(3)</label>
                     <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" name="tagArea"></textarea>
+                      <textarea class="form-control" rows="3" name="titleArea" id = "tag"></textarea>
+                      <a onclick="add()" class="btn btn-default">Add</a>
                     </div>
                  </div>
+                 
+               <div class="form-group">
+                  <label for="inputFile" class="col-lg-2 control-label"></label>
+                  <div class="col-lg-10">
+                  	<input type="hidden" id = "tagLabel" name = "tagLabel"></input>
+                  </div>
+                </div>
 
                 <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">

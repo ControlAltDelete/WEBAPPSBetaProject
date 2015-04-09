@@ -16,10 +16,11 @@ public class User {
 		email = null;
 	}
 	
-	public User(String username,String password)
+	public User(String username,String password,String usertype)
 	{
 		this.username = username;
 		this.password = password;
+		this.usertype = usertype;
 	}
 	
 	public User(String username,String password, String usertype, String nickname, String email)
