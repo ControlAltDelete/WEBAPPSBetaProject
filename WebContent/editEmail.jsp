@@ -57,10 +57,17 @@
         <div class="col-lg-6">
           <p class="lead">Edit email</p>
           <div class="well bs-component">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action = "EditEmailController" method = "POST">
               <fieldset>
                 <div class="form-group">
-                  <label for="inputEmail" class="col-lg-2 control-label">New email</label>
+                  <label for="inputEmail" class="col-lg-2 control-label">Current email</label>
+                  
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Your new email here">
+                  </div>
+                 </div> 
+                 <div class="form-group"> 
+                  <label for="inputNewEmail" class="col-lg-2 control-label">New email</label>
                   
                   <div class="col-lg-10">
                     <input type="text" class="form-control" id="inputEmail" placeholder="Your new email here">

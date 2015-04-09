@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE hmtl>
 <html>
   <head>
@@ -49,47 +49,72 @@
   </head>
 
   <body>
+     <div class="row">
+     	<div class="bs-component icons-material" align= "center" >
+  	 		<div class="icon-preview"><i class="mdi-action-face-unlock"></i><span></span></div>
+  	 		<div class="icon-preview"><i class="mdi-navigation-apps"></i><span>mdi-navigation-apps</span></div>
+  	 	</div>
+  	 </div>	
+  			
     <div class="container">
-      <div class="column">
+      <div class="row">
      
        <div class="col-lg-6 col-md-6 col-sm-6">
-         <a href= "MainPage.jsp"><img src="image/camera.png"></a>
-
+        <a href= "MainPage.jsp"><img src="image/camera.png"></a>
        </div>
-      
-        <div class="col-lg-6">
-        
-         
-          <p class ="lead">General Account Settings</p>
-          
-          <div class="well bs-component">
-            <h4>Name:</h4> 
-            <h5><p class="text-info">Alex Jose</p><br></h5>
-            
-     
-            <a href="editName.jsp" button class="btn btn-primary" id="Signup">Edit</a>
-            
-  	      </div>
-  	      
-  	      <div class="well bs-component">
-            <h4>Password: </h4>
-            <h5><p class="text-info">Last changed 6 months ago</p><br></h5>
-            
-     
-            <a href="editPass.jsp" button class="btn btn-primary" id="Signup">Edit</a>
-            
-  	      </div>
-  	      
-  	      <div class="well bs-component">
-            <h4>Email: </h4>
-            <h5><p class="text-info">abcd@gmail.com</p><br></h5>
-            
-     
-            <a href="editEmail.jsp" button class="btn btn-primary" id="Signup">Edit</a>
-            
-  	      </div>
-        </div>
+       <div class="col-lg-6">
+             <div class="bs-component" align = "center">
+                 <br><br><br><br><br><br><br>
+                 <p class="text-success">Welcome to Photo Surgery Page</p>
+                 <p class="text-success">Here we present virtual place you can convert yourself into</p>
+                 <p class="text-success">We would like to offer you a change you can't refuse</p>
+                 <p class="text-success">Don't Hide YOUR EXISTENCE. </p>
+                 <p class="text-success">THE PHOTO DOCTORS HERE WILL MAKE YOU NEW</p>
+                 <p class="text-success">WELCOME ABOARD AGAIN PATIENTS!</p>
+            </div>
+      </div>      
       </div>
+      <div class="row" align="middle" >
+     
+     	<h1 class="bs-component">
+             <a href = "request.jsp"><img src="image/Request.jpg" width= "150" height = "150"  ></a>	
+             <br><br><br><br><br><br>
+             <a href="javascript:void(0)" class="btn btn-flat btn-danger" ><font size="25">Monthly Surgery</font></a>
+             <br><br><br><br><br><br>
+         </h1>
+      </div>
+      <div class="row" align="middle">
+      
+                    
+                       <div class="bs-component">
+                            <ul class="pagination">
+                                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
+                                <li class="active"><a href="javascript:void(0)">1</a></li>
+                                <li ><a href="javascript:void(0)">2</a></li>
+                                <li><a href="javascript:void(0)">3</a></li>
+                                <li><a href="javascript:void(0)">4</a></li>
+                                <li><a href="javascript:void(0)">5</a></li>
+                                <li><a href="javascript:void(0)">6</a></li>
+                                <li><a href="javascript:void(0)">7</a></li>
+                                <li><a href="javascript:void(0)">8</a></li>
+                                <li><a href="javascript:void(0)">9</a></li>
+                                <li><a href="javascript:void(0)">10</a></li>
+                                <li><a href="javascript:void(0)">11</a></li>
+                                <li><a href="javascript:void(0)">12</a></li>
+                                <li><a href="javascript:void(0)">13</a></li>
+                                <li><a href="javascript:void(0)">14</a></li>
+                                <li><a href="javascript:void(0)">15</a></li>
+                                
+                                <li><a href="javascript:void(0)">&raquo;</a></li>
+                            </ul>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        </div>
+                        
+                        
+                        
+    </div>
+    </div>  
+      
     </div>
 
     <script src="js/registering.js"></script>

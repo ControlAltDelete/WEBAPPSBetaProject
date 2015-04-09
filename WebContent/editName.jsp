@@ -57,7 +57,7 @@
         <div class="col-lg-6">
           <p class="lead">Edit name</p>
           <div class="well bs-component">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action = "EditNameController" method = "POST">
               <fieldset>
                 <div class="form-group">
                   <label for="inputName" class="col-lg-2 control-label">New name</label>

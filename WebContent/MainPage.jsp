@@ -50,7 +50,17 @@
   </head>
 
   <body>
-  
+  <div class="row">
+     	<div class="bs-component icons-material" align= "center" >
+  	 		<div class="icon-preview">
+  	 			<a href = "profile.jsp"><i class="mdi-action-face-unlock"></i></a>
+  	 		</div>
+  	 		<div class="icon-preview">
+  	 			<a href = "settings.jsp"><i class="mdi-navigation-apps"></i></a>
+  	 		</div>
+  	 	</div>
+  </div>	
+  	 
   <c:if test="${Login_Status == 'Success'}"> 
   <script>alert("Login Successful !!");</script>
   <c:set var="Login_Status" scope="session" value="null"/>
@@ -61,13 +71,14 @@
   <c:set var="Request_Status" scope="session" value="null"/>
   </c:if>
   
-    <div class="container">
+   <div class="container">
       <div class="row">
      
        <div class="col-lg-6 col-md-6 col-sm-6">
-         <img src="image/camera.png">
+         <a href= "MainPage.jsp"><img src="image/camera.png"></a>
        </div>
-       <div class="col-lg-6">
+       
+        <div class="col-lg-6">
              <div class="bs-component" align = "center">
                  <br><br><br><br><br><br><br>
                  <p class="text-success">Welcome to Photo Surgery Page</p>
@@ -77,31 +88,35 @@
                  <p class="text-success">THE PHOTO DOCTORS HERE WILL MAKE YOU NEW</p>
                  <p class="text-success">WELCOME ABOARD AGAIN PATIENTS!</p>
             </div>
-      </div>      
+       </div>   
+          
       </div>
+      <div class="row" align = "center">
+      <a href = "request.jsp"><img src="image/Request.jpg" width= "150" height = "150"></a>
+      <div class="row" align = "center">
       <div class="row" float = "left">
      
       <div class="col-lg-6 col-md-6 col-sm-6" >
       <br><br><br><br>
-         <a href = "request.jsp"><img src="image/Request.jpg" width= "150" height = "150"  ></a>
-         <br><br><br><br><br><br><br><br><br>
+         
+         <br><br><br><br><br><br><br>
          
           <h1 class="bs-component">
             
-             <a href="javascript:void(0)" class="btn btn-flat btn-success">RECENTLY IMPLEMENTED SURGERY</a>
+             <a href="RecentPage.jsp" class="btn btn-flat btn-success">RECENTLY IMPLEMENTED SURGERY</a>
              <br><br><br><br><br><br>
-             <a href="javascript:void(0)" class="btn btn-flat btn-info">Admin's Chosen SURGERY</a>
+             <a href="AdminPage.jsp" class="btn btn-flat btn-info">Admin's Chosen SURGERY</a>
              <br><br><br><br><br><br>
-             <a href="javascript:void(0)" class="btn btn-flat btn-warning">Weekly SURGERY</a>
+             <a href="WeeklyPage.jsp" class="btn btn-flat btn-warning">Weekly SURGERY</a>
              <br><br><br><br><br><br>
-             <a href="javascript:void(0)" class="btn btn-flat btn-danger">Monthly SURGERY</a>         
+             <a href="MonthlyPage.jsp" class="btn btn-flat btn-danger">Monthly SURGERY</a>         
              <br><br><br><br><br><br>
           </h1>
         
       </div>
       
     <div class="row" >
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
                     <div class="col-lg-4">
                         <div class="bs-component">
                             <ul class="pagination">

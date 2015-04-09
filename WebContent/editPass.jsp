@@ -57,7 +57,7 @@
         <div class="col-lg-6">
           <p class="lead">Edit password</p>
           <div class="well bs-component">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action = "EditPasswordController" method = "POST">
               <fieldset>
                 <div class="form-group">
                   <label for="inputPass" class="col-lg-2 control-label">Current password</label>

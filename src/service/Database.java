@@ -60,6 +60,36 @@ public class Database {
 		return results;
 	  }
 	  
+	  public ArrayList<User> getEditEmail(String query,String query2) throws ClassNotFoundException
+	  {
+			
+		ArrayList<User> results = new ArrayList<User>();
+		String queryy = "select * from user where email ='" + query + "' and password = '" + query2 + "'";
+		//code for accessing db
+		
+		try
+		{
+		  
+			connect = DriverManager.getConnection(connection, user, pass);
+		  ResultSet resultSet = stat.executeQuery(queryy);
+		  
+		  while(resultSet.next())
+		  {
+			  results.add(new User(resultSet.getString(1), resultSet.getString(2)));
+		  }
+		  
+		  connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+		
+		}
+			
+		return results;
+	  }
+	  
+	  
 	  public int getRegistration(String email,String nickname,String password) throws ClassNotFoundException
 	  {
 
