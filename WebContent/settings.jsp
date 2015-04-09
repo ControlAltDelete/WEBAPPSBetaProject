@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE hmtl>
 <html>
   <head>
@@ -50,7 +50,6 @@
   </head>
 
   <body>
-  
   <c:if test="${Change_Status == 'Success'}"> 
   <script>alert("Change Successful!!");</script>
   <c:set var="Change_Status" scope="session" value="null"/>
@@ -60,9 +59,6 @@
   <script>alert("Change Failed!!");</script>
   <c:set var="Change_Status" scope="session" value="null"/>
   </c:if>
-  
-  
-  
     <div class="container">
       <div class="column">
      

@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import src.Model.Request;
 import src.Model.User;
 
 public class Database {
@@ -46,7 +47,10 @@ public class Database {
 		  
 		  while(resultSet.next())
 		  {
-			  results.add(new User(resultSet.getString(1), resultSet.getString(2), resultSet.getString("usertype")));
+			  User user = new User();
+			  user.setEmail(resultSet.getString("email"));
+			  user.setUsertype(resultSet.getString("usertype"));
+			  results.add(user);
 		  }
 		  
 		  connect.close();
@@ -60,72 +64,35 @@ public class Database {
 		return results;
 	  }
 	  
-	  public int EditEmail(String query, String Newemail) throws ClassNotFoundException
+	  public ArrayList<User> getEditEmail(String query,String query2) throws ClassNotFoundException
 	  {
+			
+		ArrayList<User> results = new ArrayList<User>();
+		String queryy = "select * from user where email ='" + query + "' and password = '" + query2 + "'";
+		//code for accessing db
 		
-		String update = "UPDATE user SET email='"+ Newemail +"' WHERE email='"+ query +"'";
 		try
 		{
 		  
-		  connect = DriverManager.getConnection(connection, user, pass);
-		  stat.executeUpdate(update);
+			connect = DriverManager.getConnection(connection, user, pass);
+		  ResultSet resultSet = stat.executeQuery(queryy);
 		  
+		  while(resultSet.next())
+		  {
+			  results.add(new User(resultSet.getString(1), resultSet.getString(2), null));
+		  }
 		  
 		  connect.close();
 		}
 		
 		catch(SQLException e)
 		{
-			System.out.println(e);
+		
 		}
 			
-		return 1;
+		return results;
 	  }
 	  
-	  
-	  public int EditName(String query, String Newname) throws ClassNotFoundException
-	  {
-		
-		String update = "UPDATE user SET nickName='"+ Newname +"' WHERE nickName='"+ query +"'";
-		try
-		{
-		  
-		  connect = DriverManager.getConnection(connection, user, pass);
-		  stat.executeUpdate(update);
-		  
-		  
-		  connect.close();
-		}
-		
-		catch(SQLException e)
-		{
-			System.out.println(e);
-		}
-			
-		return 1;
-	  }
-	  
-	  public int EditPassword(String query, String NewPassword) throws ClassNotFoundException
-	  {
-		
-		String update = "UPDATE user SET password='"+ NewPassword +"' WHERE password='"+ query +"'";
-		try
-		{
-		  
-		  connect = DriverManager.getConnection(connection, user, pass);
-		  stat.executeUpdate(update);
-		  
-		  
-		  connect.close();
-		}
-		
-		catch(SQLException e)
-		{
-			System.out.println(e);
-		}
-			
-		return 1;
-	  }
 	  
 	  public int getRegistration(String email,String nickname,String password) throws ClassNotFoundException
 	  {
@@ -207,4 +174,104 @@ public class Database {
 		return 1;
 	  }
 	  
+	  public ArrayList<Request> getAdminUpdate() throws ClassNotFoundException
+	  {
+			
+		ArrayList<Request> results = new ArrayList<Request>();
+		String queryy = "select * from request where selected = 'yes'";
+		//code for accessing db
+		
+		try
+		{
+		  
+			connect = DriverManager.getConnection(connection, user, pass);
+			ResultSet resultSet = stat.executeQuery(queryy);
+		  
+		  while(resultSet.next())
+		  {
+			  Request request = new Request();
+			  request.setTitle(resultSet.getString("title"));
+			  request.setDescription(resultSet.getString("description"));
+			  request.setTag(resultSet.getString("tag"));
+			  request.setDate(resultSet.getDate("date"));
+			  results.add(request);
+		  }
+		  
+		  connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+		
+		}
+			
+		return results;
+	  }
+	  
+	  public int EditEmail(String query, String Newemail) throws ClassNotFoundException
+	  {
+		
+		String update = "UPDATE user SET email='"+ Newemail +"' WHERE email='"+ query +"'";
+		try
+		{
+		  
+		  connect = DriverManager.getConnection(connection, user, pass);
+		  stat.executeUpdate(update);
+		  
+		  
+		  connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+			
+		return 1;
+	  }
+	  
+	  
+	  public int EditName(String query, String Newname) throws ClassNotFoundException
+	  {
+		
+		String update = "UPDATE user SET nickName='"+ Newname +"' WHERE nickName='"+ query +"'";
+		try
+		{
+		  
+		  connect = DriverManager.getConnection(connection, user, pass);
+		  stat.executeUpdate(update);
+		  
+		  
+		  connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+			
+		return 1;
+	  }
+	  
+	  public int EditPassword(String query, String NewPassword) throws ClassNotFoundException
+	  {
+		
+		String update = "UPDATE user SET password='"+ NewPassword +"' WHERE password='"+ query +"'";
+		try
+		{
+		  
+		  connect = DriverManager.getConnection(connection, user, pass);
+		  stat.executeUpdate(update);
+		  
+		  
+		  connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+			
+		return 1;
+	  }
 }

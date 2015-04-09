@@ -61,8 +61,13 @@
   	 	</div>
   </div>	
   	 
-  <c:if test="${Login_Status == 'Success'}"> 
+  <c:if test="${Login_Status == 'Success' && usertype != 'admin'}"> 
   <script>alert("Login Successful !!");</script>
+  <c:set var="Login_Status" scope="session" value="null"/>
+  </c:if>
+  
+  <c:if test="${Login_Status == 'Success' && usertype == 'admin'}"> 
+  <script>alert("Hello admin!!");</script>
   <c:set var="Login_Status" scope="session" value="null"/>
   </c:if>
   
@@ -106,6 +111,11 @@
              <a href="RecentPage.jsp" class="btn btn-flat btn-success">RECENTLY IMPLEMENTED SURGERY</a>
              <br><br><br><br><br><br>
              <a href="AdminPage.jsp" class="btn btn-flat btn-info">Admin's Chosen SURGERY</a>
+             
+             <c:if test="${ usertype == 'admin'}"> 
+  			 <a href="javascript:void(0)" class="btn btn-primary">Add</a>
+  		     </c:if>
+  		     
              <br><br><br><br><br><br>
              <a href="WeeklyPage.jsp" class="btn btn-flat btn-warning">Weekly SURGERY</a>
              <br><br><br><br><br><br>
@@ -120,7 +130,7 @@
                     <div class="col-lg-4">
                         <div class="bs-component">
                             <ul class="pagination">
-                                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
+                            	<li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
                                 <li class="active"><a href="javascript:void(0)">1</a></li>
                                 <li><a href="javascript:void(0)">2</a></li>
                                 <li><a href="javascript:void(0)">3</a></li>
@@ -133,12 +143,13 @@
                         <div class="bs-component">
                             <ul class="pagination">
                                 <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                                <li class="active"><a href="javascript:void(0)">1</a></li>
-                                <li><a href="javascript:void(0)">2</a></li>
-                                <li><a href="javascript:void(0)">3</a></li>
-                                <li><a href="javascript:void(0)">4</a></li>
-                                <li><a href="javascript:void(0)">5</a></li>
-                                <li><a href="javascript:void(0)">&raquo;</a></li>
+                                
+                                <c:set var="count" value="0" scope="page" />
+                                <c:forEach items="${adminPhoto}" var="i">
+								    <li><a href="javascript:void(0)"><c:out value="${count}"/></a></li>
+								    <c:set var="count" value="${count + 1}" scope="page"/>
+								</c:forEach>
+								<li><a href="javascript:void(0)">&raquo;</a></li>
                             </ul>
                             <br><br><br><br><br><br><br><br><br>
                         </div>

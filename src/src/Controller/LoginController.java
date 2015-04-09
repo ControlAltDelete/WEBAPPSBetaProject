@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import service.Database;
+import src.Model.Request;
 import src.Model.User;
 
 /**
@@ -50,6 +51,7 @@ public class LoginController extends HttpServlet {
 		{
 		  store.initialize();
 		  ArrayList<User> matchItem = store.getLogin(email,password);
+		  ArrayList<Request> adminPhoto = store.getAdminUpdate();
 		  
 		  if(matchItem.size() == 1)
 		  {
@@ -57,6 +59,7 @@ public class LoginController extends HttpServlet {
 			  session.setAttribute("Login_Status","Success") ;
 			  session.setAttribute("email",email);
 			  session.setAttribute("usertype",matchItem.get(0).getUsertype());
+			  session.setAttribute("adminPhoto",adminPhoto);
 			  response.sendRedirect("MainPage.jsp");
 		  }
 		  else

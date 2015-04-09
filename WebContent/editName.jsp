@@ -68,8 +68,6 @@
                 </div>
                 
                 <div class="form-group">
-                  <label for="inputName" class="col-lg-2 control-label">New name</label>
-                  
                   <div class="col-lg-10">
                     <input type="text" class="form-control" name="inputNewName" placeholder="Your new name here">
                   </div>

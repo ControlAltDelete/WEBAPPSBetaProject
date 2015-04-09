@@ -44,24 +44,23 @@ public class EditEmailController extends HttpServlet {
 			try
 			{
 			  store.initialize();
-			  
 			  int error= store.EditEmail(email,Newemail);
 			  
 			  
 			  if(error == 1)
 			  {
-					session.setAttribute("Change_Status","Success") ;
+				  session.setAttribute("Change_Status","Success") ;
 					response.sendRedirect("settings.jsp");
 			  }
 			  else
 			  {
-
 				  System.out.println(error);
 				  System.out.println("Change failed");
 				  session.setAttribute("Change_Status","Failed") ;
 				  response.sendRedirect("settings.jsp");
 			  }
 			}
+			
 			catch(ClassNotFoundException e)
 			{
 				e.printStackTrace();

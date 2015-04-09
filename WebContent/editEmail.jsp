@@ -67,7 +67,6 @@
                   </div>
                  </div> 
                  <div class="form-group"> 
-                  <label for="inputNewEmail" class="col-lg-2 control-label">New email</label>
                   
                   <div class="col-lg-10">
                     <input type="text" class="form-control" name="inputNewEmail" placeholder="Your new email here">

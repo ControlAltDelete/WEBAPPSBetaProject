@@ -1,7 +1,6 @@
 package src.Model;
 
 public class User {
-	private String username;
 	private String password;
 	private String usertype;
 	private String nickname;
@@ -9,37 +8,25 @@ public class User {
 	
 	public User()
 	{
-		username = null;
 		password = null;
 		usertype = null;
 		nickname = null;
 		email = null;
 	}
 	
-	public User(String username,String password,String usertype)
+	public User(String email,String password,String usertype)
 	{
-		this.username = username;
+		this.email = email;
 		this.password = password;
 		this.usertype = usertype;
 	}
 	
-	public User(String username,String password, String usertype, String nickname, String email)
+	public User(String email,String password, String usertype, String nickname)
 	{
-		this.username = username;
+		this.email = email;
 		this.password = password;
 		this.usertype = usertype;
 		this.nickname = nickname;
-		this.email = email;
-	}
-	
-	public String getUserName()
-	{
-		return username;
-	}
-	
-	public void setUsername(String username)
-	{
-		this.username = username;
 	}
 	
 	public String getPassword()
