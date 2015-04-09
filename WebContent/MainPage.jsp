@@ -45,8 +45,26 @@
             }
             .icon-preview:hover i { color: #4285f4; }
             .icon-preview:hover span { display: block; cursor: text; }
+            
+            .pictures{
+            	height: 150px;
+            	
+            }
 
         </style>
+        
+        <script>
+        var admin = [];
+        	function change(i)
+        	{
+        		document.getElementById("pictures").innerHTML = "";
+        		for(var j = 0; j < admin[i].length; j++)
+        		{
+        			document.getElementById("pictures").innerHTML += admin[i][j] + "<br>";
+        		}
+        		
+        	}
+        </script>
   </head>
 
   <body>
@@ -138,17 +156,28 @@
                                 <li><a href="javascript:void(0)">5</a></li>
                                 <li><a href="javascript:void(0)">&raquo;</a></li>
                             </ul>
-                            <br><br><br><br><br><br><br><br><br>
                         </div>
+                        <div class = "pictures" id = "pictures">shittnag</div>
                         <div class="bs-component">
                             <ul class="pagination">
                                 <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
                                 
                                 <c:set var="count" value="0" scope="page" />
-                                <c:forEach items="${adminPhoto}" var="i">
-								    <li><a href="javascript:void(0)"><c:out value="${count}"/></a></li>
+                                <c:forEach items="${adminPhoto}" var="value">
+                                		<script>
+                                			var i = "${count}";
+                                			var title = "${value.title}";
+                                			var description = "${value.description}";
+                                			var tag = "${value.tag}";
+                                			admin.push(new Array);
+                                			admin[i].push(title);
+                                			admin[i].push(description);
+                                			admin[i].push(tag);
+                                		</script>
+								    <li><a href="javascript:change(${count})"><c:out value="${count}"/></a></li>
 								    <c:set var="count" value="${count + 1}" scope="page"/>
 								</c:forEach>
+								
 								<li><a href="javascript:void(0)">&raquo;</a></li>
                             </ul>
                             <br><br><br><br><br><br><br><br><br>
