@@ -46,7 +46,7 @@ public class Database {
 		  
 		  while(resultSet.next())
 		  {
-			  results.add(new User(resultSet.getString(1), resultSet.getString(2)));
+			  results.add(new User(resultSet.getString(1), resultSet.getString(2), resultSet.getString("usertype")));
 		  }
 		  
 		  connect.close();
@@ -98,7 +98,7 @@ public class Database {
 		  
 		  while(resultSet.next())
 		  {
-			  results.add(new User(resultSet.getString(1), resultSet.getString(2)));
+			  results.add(new User(resultSet.getString(1), resultSet.getString(2),null));
 		  }
 		  
 		  connect.close();

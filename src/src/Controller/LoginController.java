@@ -56,6 +56,7 @@ public class LoginController extends HttpServlet {
 			  System.out.println("Login successful!");
 			  session.setAttribute("Login_Status","Success") ;
 			  session.setAttribute("email",email);
+			  session.setAttribute("usertype",matchItem.get(0).getUsertype());
 			  response.sendRedirect("MainPage.jsp");
 		  }
 		  else
