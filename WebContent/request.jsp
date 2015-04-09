@@ -52,6 +52,10 @@
 
 
   <body>
+    <c:if test="${Upload_Status == 'Failed'}"> 
+      <script>alert("No file uploaded.");</script>
+      <c:set var="Upload_Status" scope="session" value="null"/>
+    </c:if>
   
     <div class="container">
       <div class="column">
@@ -67,7 +71,7 @@
           <p class ="lead">REQUEST YOUR OWN SURGERY</p>
           
           <div class="well bs-component">
-            <form class="form-horizontal" action = "RequestController" method = "POST">
+            <form class="form-horizontal" action = "RequestController" method = "POST" enctype="multipart/form-data">
               <fieldset>
   	            <div class="form-group">
                   <label for="titleArea" class="col-lg-2 control-label">Title of request</label>

@@ -52,7 +52,6 @@
   <body>
   
   <c:if test="${Login_Status == 'Success'}"> 
-  <script>alert("Login Successful !!");</script>
   <c:set var="Login_Status" scope="session" value="null"/>
   </c:if>
   
