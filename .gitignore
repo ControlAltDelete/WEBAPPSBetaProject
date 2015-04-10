@@ -57,3 +57,4 @@ local.properties
 .classpath
 .settings/
 .loadpath
+/build/
