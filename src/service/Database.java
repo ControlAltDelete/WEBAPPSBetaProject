@@ -146,18 +146,18 @@ public class Database {
 		return results;
 	  }
 	  
-	  public int getRequest(String title,String description,String tag,String email) throws ClassNotFoundException
+	  public int getRequest(String title,String description,String tag,String path,String email) throws ClassNotFoundException
 	  {
 
 		java.util.Calendar cal = java.util.Calendar.getInstance();
 		java.util.Date utilDate = cal.getTime();
 		java.sql.Date sqlDate = new Date(utilDate.getTime());  
 		  
-		String queryy = "insert into request (title,description,tag,date,userID) values ('" 
-						+ title + "','" + description + "','" + tag + "','" + sqlDate
+		String queryy = "insert into request (title,description,tag,url,date,userID) values ('" 
+						+ title + "','" + description + "','" + tag + "','" + path + "','" + sqlDate
 						+ "'," + "(SELECT userID from user WHERE email='" + email + "'));";
 		//code for accessing db
-		
+		System.out.println(queryy);
 		try
 		{
 			connect = DriverManager.getConnection(connection, user, pass);

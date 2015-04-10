@@ -66,6 +66,11 @@
 
   <body>
   
+  <c:if test="${Upload_Status == 'Failed'}"> 
+      <script>alert("No file uploaded.");</script>
+      <c:set var="Upload_Status" scope="session" value="null"/>
+    </c:if>
+  
     <div class="container">
       <div class="column">
      
@@ -80,7 +85,7 @@
           <p class ="lead">REQUEST YOUR OWN SURGERY</p>
           
           <div class="well bs-component">
-            <form class="form-horizontal" action = "RequestController" method = "POST">
+            <form class="form-horizontal" action = "RequestController" method = "POST" enctype="multipart/form-data">
               <fieldset>
   	            <div class="form-group">
                   <label for="titleArea" class="col-lg-2 control-label">Title of request</label>
@@ -108,7 +113,7 @@
                <div class="form-group">
                   <label for="tagArea" class="col-lg-2 control-label">Tag(3)</label>
                     <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" name="titleArea" id = "tag"></textarea>
+                      <textarea class="form-control" rows="3" name="tagArea" id = "tag"></textarea>
                       <a onclick="add()" class="btn btn-default">Add</a>
                     </div>
                  </div>
@@ -122,7 +127,7 @@
 
                 <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">
-                    <input type = "submit"></input>
+                    <input type = "submit" class="btn btn-primary"></input>
                   </div>
                 </div>
           
