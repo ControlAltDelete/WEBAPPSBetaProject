@@ -184,7 +184,7 @@ public class RequestController extends HttpServlet {
 	        
 	          catch (FileUploadException fue)
 	          {
-	            fue.printStackTrace();
+	            response.sendRedirect("index.jsp");
 	          }
 
 	        }
@@ -193,10 +193,6 @@ public class RequestController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
 	}
 
 }
