@@ -387,4 +387,32 @@ public class Database {
 		  
 		  return result;
 	  }
+	  
+	  public ArrayList<Request> getList()
+	  {
+		  String query = "select * from request";
+		  ArrayList<Request> result = new ArrayList<Request>();
+		  
+		  try
+		  {
+				 connect = DriverManager.getConnection(connection, user, pass);
+				 ResultSet resultSet = stat.executeQuery(query);
+				 while(resultSet.next())
+				 {
+					  Request request = new Request();
+					  request.setId(resultSet.getInt("requestID"));
+					  request.setTitle(resultSet.getString("title"));
+					  request.setDescription(resultSet.getString("description"));
+					  request.setTag(resultSet.getString("tag"));
+					  request.setDate(resultSet.getDate("date"));
+					  request.setSelected(resultSet.getString("selected"));
+					  result.add(request);
+				 }
+		  }catch(SQLException e)
+		  {
+			  System.out.println(e);
+		  }
+		  
+		  return result;
+	  }
 }

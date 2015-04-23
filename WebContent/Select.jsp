@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE hmtl>
 <html>
   <head>
@@ -47,6 +47,22 @@
             .icon-preview:hover span { display: block; cursor: text; }
 
         </style>
+        
+        <script>
+        var adminList = [];
+        	function change(i,id,arrayName,requestID)
+        	{
+        		console.log(id);
+        		document.getElementById(id).innerHTML = "";
+        		for(var j = 0; j < arrayName[i].length; j++)
+        		{
+        			document.getElementById(id).innerHTML += arrayName[i][j] + "<br>";
+        		}
+        		document.getElementById(id).innerHTML += 
+        			"<img src='Image.jsp?imgID="+ requestID +"' width='300' height = '500' border='0'>" + "<br>";
+        		
+        	}
+        </script>
   </head>
 
   <body>
@@ -86,20 +102,29 @@
       </div>
       <div class="row" align="middle">
       
-                    
+                    <div class = "pictures" id = "picture1"></div>
                        <div class="bs-component">
                             <ul class="pagination">
                                 <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                                <li class="active"><a href="javascript:void(0)">1</a></li>
-                                <li ><a href="javascript:void(0)">2</a></li>
-                                <li><a href="javascript:void(0)">3</a></li>
-                                <li><a href="javascript:void(0)">4</a></li>
-                                <li><a href="javascript:void(0)">5</a></li>
-                                <li><a href="javascript:void(0)">6</a></li>
-                                <li><a href="javascript:void(0)">7</a></li>
-                                <li><a href="javascript:void(0)">8</a></li>
-                                <li><a href="javascript:void(0)">9</a></li>
-                                <li><a href="javascript:void(0)">10</a></li>
+                                <c:set var="count" value="0" scope="page" />
+                                <c:forEach items="${AdminList}" var="value">
+                                		<script>
+                                			var i = "${count}";
+                                			var title = "${value.title}";
+                                			var description = "${value.description}";
+                                			var tag = "${value.tag}";
+                                			var selected = "${value.selected}"
+                                			var id = "${value.id}";
+                                			adminList.push(new Array);
+                                			adminList[i].push(title);
+                                			adminList[i].push(description);
+                                			adminList[i].push(tag);
+                                			adminList[i].push(selected);
+                                			adminList[i].push(id);
+                                		</script>
+								    <li><a href="javascript:change(${count},'picture1',adminList,adminList[${count}][4])"><c:out value="${count}"/></a></li>
+								    <c:set var="count" value="${count + 1}" scope="page"/>
+								</c:forEach>
                                 
                                 <li><a href="javascript:void(0)">&raquo;</a></li>
                             </ul>

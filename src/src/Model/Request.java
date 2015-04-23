@@ -8,6 +8,7 @@ public class Request {
 	private String tag;
 	private Date date;
 	private int id;
+	private String selected;
 	
 	public Request()
 	{
@@ -56,5 +57,13 @@ public class Request {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public String getSelected() {
+		return selected;
+	}
+
+	public void setSelected(String selected) {
+		this.selected = selected;
 	}
 }

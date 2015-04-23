@@ -145,7 +145,7 @@
              
              <c:if test="${ usertype == 'admin'}">
              <form action = "AddController" method = "POST">
-             	<a href="javascript:void(0)" class="btn btn-primary">Add</a>
+             	<input type = "submit" class="btn btn-primary"></input>
              </form> 
   		     </c:if>
   		     
