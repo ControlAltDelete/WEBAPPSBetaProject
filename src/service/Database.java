@@ -18,7 +18,7 @@ import src.Model.User;
 
 public class Database {
 	  private String user = "root";
-	  private String pass = "p@ssword";
+	  private String pass = "root";
 	  
 	  String connection = "jdbc:mysql://localhost:3306/photosurgery";
 	  Connection connect;
@@ -357,5 +357,31 @@ public class Database {
 		 
 		    
 		    return blobb;
+	  }
+	  
+	  public ArrayList<Request> getSearch(String tag)
+	  {
+		  String query = "select * from request where tag = '" + tag + "'";
+		  ArrayList<Request> result = new ArrayList<Request>();
+		  
+		  try
+		  {
+				 connect = DriverManager.getConnection(connection, user, pass);
+				 ResultSet resultSet = stat.executeQuery(query);
+				 while(resultSet.next())
+				 {
+					  Request request = new Request();
+					  request.setTitle(resultSet.getString("title"));
+					  request.setDescription(resultSet.getString("description"));
+					  request.setTag(resultSet.getString("tag"));
+					  request.setDate(resultSet.getDate("date"));
+					  result.add(request);
+				 }
+		  }catch(SQLException e)
+		  {
+			  System.out.println(e);
+		  }
+		  
+		  return result;
 	  }
 }
