@@ -3,6 +3,7 @@ package service;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -208,6 +209,40 @@ public class Database {
 		return results;
 	  }
 	  
+	  public ArrayList<Request> getRecentUpdate() throws ClassNotFoundException
+	  {
+			
+		ArrayList<Request> results = new ArrayList<Request>();
+		String queryy = "select * from request";
+		//code for accessing db
+		
+		try
+		{
+		  
+			connect = DriverManager.getConnection(connection, user, pass);
+			ResultSet resultSet = stat.executeQuery(queryy);
+		  
+		  while(resultSet.next())
+		  {
+			  Request request = new Request();
+			  request.setTitle(resultSet.getString("title"));
+			  request.setDescription(resultSet.getString("description"));
+			  request.setTag(resultSet.getString("tag"));
+			  request.setDate(resultSet.getDate("date"));
+			  results.add(request);
+		  }
+		  
+		  connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+		
+		}
+			
+		return results;
+	  }
+	  
 	  public int EditEmail(String query, String Newemail) throws ClassNotFoundException
 	  {
 		
@@ -273,5 +308,35 @@ public class Database {
 		}
 			
 		return 1;
+	  }
+	  
+	  public byte[] getPhoto(int id) throws ClassNotFoundException
+	  {
+		 String queryy = "select * from request where requestID = '" + id + "'";
+		 
+		 Blob img ;
+		    byte[] imgData = null;
+		    ImageManipulation manipulation = new ImageManipulation();
+		    String blobb = new String();
+		    
+		 try
+		 {
+			 connect = DriverManager.getConnection(connection, user, pass);
+			 ResultSet resultSet = stat.executeQuery(queryy); 
+			    while (resultSet.next ())
+			    { 
+			    	System.out.println(resultSet.getString("title"));
+			    	img = resultSet.getBlob("url");
+			    	imgData = img.getBytes(1,(int)img.length());
+			    	//blobb = imgData;
+			    }    
+			    
+			    connect.close(); 
+		 }catch(SQLException e)
+		 {
+			 System.out.println(e);
+		 }
+		    
+		    return imgData ;
 	  }
 }

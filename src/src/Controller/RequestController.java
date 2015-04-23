@@ -2,6 +2,7 @@ package src.Controller;
 
 import java.io.File;
 
+
 import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -86,7 +87,7 @@ public class RequestController extends HttpServlet {
 	          // maximum size that will be stored in memory
 	          factory.setSizeThreshold(maxFileSize);
 	          // Location to save data that is larger than maxMemSize.
-	          factory.setRepository(new File("c:\\temp"));
+	          factory.setRepository(new File("c:\\WEBAPPS"));
 
 	          // Create a new file upload handler
 	          ServletFileUpload upload = new ServletFileUpload(factory);

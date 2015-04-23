@@ -48,7 +48,19 @@ public class RegistrationController extends HttpServlet {
 		
 		Database store = new Database();
 		
-		if(password.equals(confirm))
+		if(password.length() == 0 || confirm.length() == 0 ||
+				email.length() == 0 || nickname.length() == 0)
+		{
+			session.setAttribute("Registration_Status","Null");
+			response.sendRedirect("signup.jsp");
+		}
+		else if(password.length() > 10 || nickname.length() > 10 ||
+				email.length() > 30 || confirm.length() > 10)
+		{
+			session.setAttribute("Registration_Status","Exceed");
+			response.sendRedirect("signup.jsp");
+		}
+		else if(password.equals(confirm))
 		{
 			try {
 				store.initialize();

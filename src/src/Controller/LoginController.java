@@ -47,34 +47,50 @@ public class LoginController extends HttpServlet {
 		//Store class is SIMULATION OF DATABASE
 		Database store = new Database();
 		
-		try
+		if(email.length() == 0 || password.length() == 0)
 		{
-		  store.initialize();
-		  ArrayList<User> matchItem = store.getLogin(email,password);
-		  ArrayList<Request> adminPhoto = store.getAdminUpdate();
-		  
-		  if(matchItem.size() == 1)
-		  {
-			  System.out.println("Login successful!");
-			  session.setAttribute("Login_Status","Success") ;
-			  session.setAttribute("email",email);
-			  session.setAttribute("usertype",matchItem.get(0).getUsertype());
-			  session.setAttribute("adminPhoto",adminPhoto);
-			  response.sendRedirect("MainPage.jsp");
-		  }
-		  else
-		  {
-			  System.out.println("Login failed");
-			  session.setAttribute("Login_Status","Failed") ;
-			  response.sendRedirect("index.jsp");
-		  }
+			System.out.println("Login failed");
+			session.setAttribute("Login_Status","Failed") ;
+			response.sendRedirect("index.jsp");
 		}
-		
-		catch(ClassNotFoundException e)
+		else if(email.length() > 30 || password.length() > 10)
 		{
-			e.printStackTrace();
+			System.out.println("Login failed");
+			session.setAttribute("Login_Status","Failed") ;
+			response.sendRedirect("index.jsp");
 		}
-		
+		else
+		{
+			try
+			{
+			  store.initialize();
+			  ArrayList<User> matchItem = store.getLogin(email,password);
+			  ArrayList<Request> adminPhoto = store.getAdminUpdate();
+			  ArrayList<Request> recentPhoto = store.getRecentUpdate();
+			  
+			  if(matchItem.size() == 1)
+			  {
+				  System.out.println("Login successful!");
+				  session.setAttribute("Login_Status","Success") ;
+				  session.setAttribute("email",email);
+				  session.setAttribute("usertype",matchItem.get(0).getUsertype());
+				  session.setAttribute("adminPhoto",adminPhoto);
+				  session.setAttribute("recentPhoto",recentPhoto);
+				  response.sendRedirect("MainPage.jsp");
+			  }
+			  else
+			  {
+				  System.out.println("Login failed");
+				  session.setAttribute("Login_Status","Failed") ;
+				  response.sendRedirect("index.jsp");
+			  }
+			}
+			
+			catch(ClassNotFoundException e)
+			{
+				e.printStackTrace();
+			}
+		}
 		
 	}
 

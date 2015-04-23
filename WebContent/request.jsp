@@ -70,6 +70,11 @@
       <script>alert("No file uploaded.");</script>
       <c:set var="Upload_Status" scope="session" value="null"/>
     </c:if>
+    
+    <c:if test="${Request_Status == 'Null'}"> 
+      <script>alert("Null Input.");</script>
+      <c:set var="Request_Status" scope="session" value="null"/>
+    </c:if>
   
     <div class="container">
       <div class="column">

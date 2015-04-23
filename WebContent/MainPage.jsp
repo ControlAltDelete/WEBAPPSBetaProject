@@ -55,12 +55,14 @@
         
         <script>
         var admin = [];
-        	function change(i)
+        var recent = [];
+        	function change(i,id,arrayName)
         	{
-        		document.getElementById("pictures").innerHTML = "";
-        		for(var j = 0; j < admin[i].length; j++)
+        		console.log(id);
+        		document.getElementById(id).innerHTML = "";
+        		for(var j = 0; j < arrayName[i].length; j++)
         		{
-        			document.getElementById("pictures").innerHTML += admin[i][j] + "<br>";
+        			document.getElementById(id).innerHTML += arrayName[i][j] + "<br>";
         		}
         		
         	}
@@ -94,6 +96,10 @@
   <c:set var="Request_Status" scope="session" value="null"/>
   </c:if>
   
+  
+  
+  <img src="Image.jsp?imgID=8" width="115" border="0">
+  
    <div class="container">
       <div class="row">
      
@@ -116,6 +122,13 @@
       </div>
       <div class="row" align = "center">
       <a href = "request.jsp"><img src="image/Request.jpg" width= "150" height = "150"></a>
+      
+      <br><br>
+      <form action = "SearchController" method = "POST">
+      	<input type = "text" name = "searchText"></input>
+      	<input type = "submit"></input>
+      </form>
+      <br>
       <div class="row" align = "center">
       <div class="row" float = "left">
      
@@ -146,18 +159,28 @@
     <div class="row" >
     <br><br><br><br><br><br><br><br><br><br><br><br>
                     <div class="col-lg-4">
+                    	<div class = "pictures" id = "picture1"></div>
                         <div class="bs-component">
                             <ul class="pagination">
                             	<li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                                <li class="active"><a href="javascript:void(0)">1</a></li>
-                                <li><a href="javascript:void(0)">2</a></li>
-                                <li><a href="javascript:void(0)">3</a></li>
-                                <li><a href="javascript:void(0)">4</a></li>
-                                <li><a href="javascript:void(0)">5</a></li>
-                                <li><a href="javascript:void(0)">&raquo;</a></li>
+                                <c:set var="count" value="0" scope="page" />
+                                <c:forEach items="${recentPhoto}" var="value">
+                                		<script>
+                                			var i = "${count}";
+                                			var title = "${value.title}";
+                                			var description = "${value.description}";
+                                			var tag = "${value.tag}";
+                                			recent.push(new Array);
+                                			recent[i].push(title);
+                                			recent[i].push(description);
+                                			recent[i].push(tag);
+                                		</script>
+								    <li><a href="javascript:change(${count},'picture1',recent)"><c:out value="${count}"/></a></li>
+								    <c:set var="count" value="${count + 1}" scope="page"/>
+								</c:forEach>
                             </ul>
                         </div>
-                        <div class = "pictures" id = "pictures">shittnag</div>
+                        <div class = "pictures" id = "picture2"></div>
                         <div class="bs-component">
                             <ul class="pagination">
                                 <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
@@ -174,7 +197,7 @@
                                 			admin[i].push(description);
                                 			admin[i].push(tag);
                                 		</script>
-								    <li><a href="javascript:change(${count})"><c:out value="${count}"/></a></li>
+								    <li><a href="javascript:change(${count},'picture2',admin)"><c:out value="${count}"/></a></li>
 								    <c:set var="count" value="${count + 1}" scope="page"/>
 								</c:forEach>
 								
