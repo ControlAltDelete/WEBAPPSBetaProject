@@ -2,6 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%@ page import = "java.io.*" %>
 <%@ page import = "src.Model.*" %>
+<%@ page import = "service.*" %>
 <jsp:useBean id="photo" class="src.Model.Image" scope="session" />
 <%
  
@@ -15,23 +16,26 @@
     try
     {  
   
+      ImageManipulation trying = new ImageManipulation();
+      
        // get the image from the database
-       byte[] imgData = photo.getPhoto(9) ;   
+       String trash = photo.getPhoto(6) ;
+       byte[] imgFileAverage = trying.convertToImage(trash, "shitt");
        // display the image
        //out.clear();
-	String filename = "shit";
+// 	String filename = "shit";
 		
-		// Write a image byte array into file system  
-		out.clear();
-		response.setContentType("image/gif");
-       OutputStream o = response.getOutputStream();
-       o.write(imgData);
-       o.flush(); 
-       o.close();
+// 		// Write a image byte array into file system  
+ 		out.clear();
+ 		response.setContentType("image/jpg");
+        OutputStream o = response.getOutputStream();
+        o.write(imgFileAverage);
+        o.flush(); 
+        o.close();
 		
-		FileOutputStream imageOutFile = new FileOutputStream(System.getProperty("user.dir")+"/src/"+filename.concat(".gif"),true);
-		imageOutFile.write(imgData);
-		imageOutFile.close();
+// 		FileOutputStream imageOutFile = new FileOutputStream(System.getProperty("user.dir")+"/src/"+filename.concat(".gif"),true);
+// 		imageOutFile.write(imgData);
+// 		imageOutFile.close();
     }
     catch (Exception e)
     {

@@ -1,5 +1,8 @@
 package service;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,7 +18,7 @@ import src.Model.User;
 
 public class Database {
 	  private String user = "root";
-	  private String pass = "root";
+	  private String pass = "p@ssword";
 	  
 	  String connection = "jdbc:mysql://localhost:3306/photosurgery";
 	  Connection connect;
@@ -310,33 +313,49 @@ public class Database {
 		return 1;
 	  }
 	  
-	  public byte[] getPhoto(int id) throws ClassNotFoundException
+	  public String getPhoto(int id) throws ClassNotFoundException, IOException
 	  {
 		 String queryy = "select * from request where requestID = '" + id + "'";
 		 
-		 Blob img ;
-		    byte[] imgData = null;
-		    ImageManipulation manipulation = new ImageManipulation();
-		    String blobb = new String();
-		    
+		 Blob img = null;
+		 byte[] imgData = new byte[1024];
+		 ImageManipulation manipulation = new ImageManipulation();
+		 String blobb = null;
+		 
+		 ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
 		 try
 		 {
 			 connect = DriverManager.getConnection(connection, user, pass);
 			 ResultSet resultSet = stat.executeQuery(queryy); 
-			    while (resultSet.next ())
-			    { 
-			    	System.out.println(resultSet.getString("title"));
-			    	img = resultSet.getBlob("url");
-			    	imgData = img.getBytes(1,(int)img.length());
+			 
+			 while (resultSet.next ())
+			 { 
+			   System.out.println(resultSet.getString("title"));
+			   img = resultSet.getBlob("url");
 			    	//blobb = imgData;
-			    }    
+			 }
+			 
+			 InputStream in = img.getBinaryStream();
+			 
+			 int n = 0;
+			 
+			 while ((n = in.read(imgData)) >= 0)
+			 {
+			   baos.write(imgData, 0, n);
+			 }
 			    
-			    connect.close(); 
+			 in.close();
+			 byte[] bytes = baos.toByteArray();
+			 blobb = new String(bytes);
+			 connect.close(); 
+			 
 		 }catch(SQLException e)
 		 {
 			 System.out.println(e);
 		 }
+		 
 		    
-		    return imgData ;
+		    return blobb;
 	  }
 }
