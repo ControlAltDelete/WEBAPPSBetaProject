@@ -118,7 +118,7 @@
                <div class="form-group">
                   <label for="tagArea" class="col-lg-2 control-label">Tag</label>
                     <div class="col-lg-10">
-                      <input type = "text" class="form-control" rows="3" name="tagArea" id = "tag"></textarea>
+                      <input type = "text" class="form-control" name="tagArea" id = "tag"></input>
                     </div>
                  </div>
                  
