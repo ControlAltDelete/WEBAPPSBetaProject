@@ -46,10 +46,6 @@
             .icon-preview:hover i { color: #4285f4; }
             .icon-preview:hover span { display: block; cursor: text; }
             
-            .pictures{
-            	height: 150px;
-            	
-            }
 
         </style>
         
@@ -65,7 +61,7 @@
         			document.getElementById(id).innerHTML += arrayName[i][j] + "<br>";
         		}
         		document.getElementById(id).innerHTML += 
-        			"<img src='Image.jsp?imgID="+ requestID +"' width='300' height = '500' border='0'>" + "<br>";
+        			"<img src='Image.jsp?imgID="+ requestID +"' width='300' height = '300' border='0'>" + "<br>";
         		
         	}
         </script>

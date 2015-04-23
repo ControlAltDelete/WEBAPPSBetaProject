@@ -58,7 +58,7 @@
         			document.getElementById(id).innerHTML += arrayName[i][j] + "<br>";
         		}
         		document.getElementById(id).innerHTML += 
-        			"<img src='Image.jsp?imgID="+ requestID +"' width='300' height = '500' border='0'>" + "<br>";
+        			"<img src='Image.jsp?imgID="+ requestID +"' width='300' height = '300' border='0'>" + "<br>";
         		
         	}
         </script>

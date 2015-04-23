@@ -53,14 +53,16 @@
         	function change(i,id,arrayName,requestID)
         	{
         		console.log(id);
+        		console.log("id:"+requestID);
         		document.getElementById(id).innerHTML = "";
         		for(var j = 0; j < arrayName[i].length; j++)
         		{
         			document.getElementById(id).innerHTML += arrayName[i][j] + "<br>";
         		}
         		document.getElementById(id).innerHTML += 
-        			"<img src='Image.jsp?imgID="+ requestID +"' width='300' height = '500' border='0'>" + "<br>";
-        		
+        			"<img src='Image.jsp?imgID="+ requestID +"' width='300' height = '300' border='0'>" + "<br>";
+        		document.getElementById("requestID").value = requestID;
+        		document.getElementById("selected").value = arrayName[i][3];
         	}
         </script>
   </head>
@@ -130,9 +132,11 @@
                             </ul>
                             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         </div>
-                        
-					<a href="javascript:void(0)" class="btn btn-info btn-fab btn-raised mdi-action-grade"></a>                        
-                        
+                    <form action = "SelectedController" method = "POST">
+                    <input type = "submit" class="btn btn-info btn-fab btn-raised mdi-action-grade"></input>      
+                    <input type = "hidden" id = "requestID" name = "requestID"></input>
+                    <input type = "hidden" id = "selected" name = "selected"></input>
+                    </form>        
     </div>
     </div>  
       

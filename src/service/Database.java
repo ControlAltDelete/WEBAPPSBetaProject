@@ -380,6 +380,7 @@ public class Database {
 					  request.setDate(resultSet.getDate("date"));
 					  result.add(request);
 				 }
+				 connect.close(); 
 		  }catch(SQLException e)
 		  {
 			  System.out.println(e);
@@ -408,11 +409,29 @@ public class Database {
 					  request.setSelected(resultSet.getString("selected"));
 					  result.add(request);
 				 }
+				 connect.close();
 		  }catch(SQLException e)
 		  {
 			  System.out.println(e);
 		  }
 		  
 		  return result;
+	  }
+	  
+	  public void changeStatus(int id,String selected)
+	  {
+		  String update = "UPDATE request SET selected='"+ selected +"' WHERE requestID='"+ id +"'";
+			
+		  try
+		  {
+			  connect = DriverManager.getConnection(connection, user, pass);
+			  stat.executeUpdate(update);
+			  
+			  
+			  connect.close();
+		  }catch(SQLException e)
+		  {
+			  System.out.println(e);
+		  }
 	  }
 }
