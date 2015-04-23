@@ -22,6 +22,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import service.*;
+import src.Model.Request;
 
 /**
  * Servlet implementation class RequestController
@@ -59,6 +60,7 @@ public class RequestController extends HttpServlet {
 		String description = null;
 		String inputFileName = null;
 		String tag = request.getParameter("tagArea");
+		ArrayList<Request> temp = new ArrayList<Request>();
 		
 		Database store = new Database();
 		
@@ -175,7 +177,8 @@ public class RequestController extends HttpServlet {
                 if(error == 1)
                 {
                     session.setAttribute("Request_Status","Success");
-                    
+                    temp = store.getRecentUpdate();
+                    session.setAttribute("recentPhoto", temp);
                 }
 	            
 	            response.sendRedirect("MainPage.jsp");

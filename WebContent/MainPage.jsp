@@ -56,7 +56,7 @@
         	{
         		console.log(id);
         		document.getElementById(id).innerHTML = "";
-        		for(var j = 0; j < arrayName[i].length; j++)
+        		for(var j = 0; j < arrayName[i].length-1; j++)
         		{
         			document.getElementById(id).innerHTML += arrayName[i][j] + "<br>";
         		}
@@ -121,7 +121,7 @@
       <br><br>
       <form action = "SearchController" method = "POST">
       	<input type = "text" name = "searchText"></input>
-      	<input type = "submit"></input>
+      	<input type = "submit" value = "Search"></input>
       </form>
       <br>
       </div>
@@ -141,7 +141,7 @@
              
              <c:if test="${ usertype == 'admin'}">
              <form action = "AddController" method = "POST">
-             	<input type = "submit" class="btn btn-primary"></input>
+             	<input type = "submit" class="btn btn-primary" value = "Select"></input>
              </form> 
   		     </c:if>
   		     
