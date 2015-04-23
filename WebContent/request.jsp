@@ -116,10 +116,9 @@
                 </div>
                
                <div class="form-group">
-                  <label for="tagArea" class="col-lg-2 control-label">Tag(3)</label>
+                  <label for="tagArea" class="col-lg-2 control-label">Tag</label>
                     <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" name="tagArea" id = "tag"></textarea>
-                      <a onclick="add()" class="btn btn-default">Add</a>
+                      <input type = "text" class="form-control" rows="3" name="tagArea" id = "tag"></textarea>
                     </div>
                  </div>
                  
