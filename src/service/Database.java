@@ -18,7 +18,7 @@ import src.Model.User;
 
 public class Database {
 	  private String user = "root";
-	  private String pass = "p@ssword";
+	  private String pass = "root";
 	  
 	  String connection = "jdbc:mysql://localhost:3306/photosurgery";
 	  Connection connect;
