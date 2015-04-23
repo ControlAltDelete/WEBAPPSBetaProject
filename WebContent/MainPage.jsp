@@ -65,7 +65,7 @@
         			document.getElementById(id).innerHTML += arrayName[i][j] + "<br>";
         		}
         		document.getElementById(id).innerHTML += 
-        			"<img src='Image.jsp?imgID="+ i +"' width='300' height = '500' border='0'>" + "<br>";
+        			"<img src='Image.jsp?imgID="+ i +"' width='200' height = '200' border='0'>" + "<br>";
         		
         	}
         </script>
@@ -127,11 +127,14 @@
       	<input type = "text" name = "searchText"></input>
       	<input type = "submit"></input>
       </form>
+      
+      </div>
+      
       <br>
       <div class="row" align = "center">
-      <div class="row" float = "left">
+      	<div class="row" float = "left">
      
-      <div class="col-lg-6 col-md-6 col-sm-6" >
+      		<div class="col-lg-6 col-md-6 col-sm-6" >
       <br><br><br><br>
          
          <br><br><br><br><br><br><br>
@@ -139,24 +142,23 @@
           <h1 class="bs-component">
             
              <a href="RecentPage.jsp" class="btn btn-flat btn-success">RECENTLY IMPLEMENTED SURGERY</a>
-             <br><br><br><br><br><br>
+             <br><br><br><br><br><br><br><br><br><br>
              <a href="AdminPage.jsp" class="btn btn-flat btn-info">Admin's Chosen SURGERY</a>
              
              <c:if test="${ usertype == 'admin'}"> 
   			 <a href="javascript:void(0)" class="btn btn-primary">Add</a>
   		     </c:if>
   		     
-             <br><br><br><br><br><br>
+             <br><br><br><br><br><br><br><br><br><br>
              <a href="WeeklyPage.jsp" class="btn btn-flat btn-warning">Weekly SURGERY</a>
-             <br><br><br><br><br><br>
+             <br><br><br><br><br><br><br><br><br><br>
              <a href="MonthlyPage.jsp" class="btn btn-flat btn-danger">Monthly SURGERY</a>         
-             <br><br><br><br><br><br>
+             <br><br><br><br><br><br><br><br><br><br>
           </h1>
         
       </div>
-      
     <div class="row" >
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br>
                     <div class="col-lg-4">
                     	<div class = "pictures" id = "picture1"></div>
                         <div class="bs-component">
@@ -179,6 +181,7 @@
 								</c:forEach>
                             </ul>
                         </div>
+                        <br><br><br><br><br><br><br><br>
                         <div class = "pictures" id = "picture2"></div>
                         <div class="bs-component">
                             <ul class="pagination">
@@ -202,7 +205,8 @@
 								
 								<li><a href="javascript:void(0)">&raquo;</a></li>
                             </ul>
-                            <br><br><br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                            <br>
                         </div>
                         <div class="bs-component">
                             <ul class="pagination">
@@ -214,7 +218,8 @@
                                 <li><a href="javascript:void(0)">5</a></li>
                                 <li><a href="javascript:void(0)">&raquo;</a></li>
                             </ul>
-                            <br><br><br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                            <br>
                         </div>
                         <div class="bs-component">
                             <ul class="pagination">
