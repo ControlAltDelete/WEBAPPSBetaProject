@@ -60,7 +60,7 @@
       <div class="row">
      
        <div class="col-lg-6 col-md-6 col-sm-6">
-         <img src="image/camera.png"">
+       <a href= "MainPage.jsp"><img src="image/camera.png"></a>
        </div>
        <div class="col-lg-6">
              <div class="bs-component" align = "center">

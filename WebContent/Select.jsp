@@ -61,8 +61,8 @@
       <div class="row">
      
        <div class="col-lg-6 col-md-6 col-sm-6">
-         <img src="image/camera.png"">
-       </div>
+         <a href= "MainPage.jsp"><img src="image/camera.png"></a>
+        </div>
        <div class="col-lg-6">
              <div class="bs-component" align = "center">
                  <br><br><br><br><br><br><br>
@@ -78,7 +78,7 @@
       <div class="row" align="middle" >
      
      	<h1 class="bs-component">
-             <img src="image/Request.jpg" width= "150" height = "150">  	
+             <a href = "request.jsp"><img src="image/Request.jpg" width= "150" height = "150"  ></a> 	
              <br><br><br><br><br><br>
              <a href="javascript:void(0)" class="btn btn-flat btn-info" ><font size="25">Select</font></a>
              <br><br><br><br><br><br>
