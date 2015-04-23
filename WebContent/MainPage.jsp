@@ -56,7 +56,7 @@
         <script>
         var admin = [];
         var recent = [];
-        	function change(i,id,arrayName)
+        	function change(i,id,arrayName,requestID)
         	{
         		console.log(id);
         		document.getElementById(id).innerHTML = "";
@@ -65,7 +65,7 @@
         			document.getElementById(id).innerHTML += arrayName[i][j] + "<br>";
         		}
         		document.getElementById(id).innerHTML += 
-        			"<img src='Image.jsp?imgID="+ i +"' width='300' height = '500' border='0'>" + "<br>";
+        			"<img src='Image.jsp?imgID="+ requestID +"' width='300' height = '500' border='0'>" + "<br>";
         		
         	}
         </script>
@@ -143,8 +143,10 @@
              <br><br><br><br><br><br><br><br><br>
              <a href="AdminPage.jsp" class="btn btn-flat btn-info">Admin's Chosen SURGERY</a>
              
-             <c:if test="${ usertype == 'admin'}"> 
-  			 <a href="javascript:void(0)" class="btn btn-primary">Add</a>
+             <c:if test="${ usertype == 'admin'}">
+             <form action = "AddController" method = "POST">
+             	<a href="javascript:void(0)" class="btn btn-primary">Add</a>
+             </form> 
   		     </c:if>
   		     
              <br><br><br><br><br><br><br><br><br>
@@ -170,12 +172,14 @@
                                 			var title = "${value.title}";
                                 			var description = "${value.description}";
                                 			var tag = "${value.tag}";
+                                			var id = "${value.id}"
                                 			recent.push(new Array);
                                 			recent[i].push(title);
                                 			recent[i].push(description);
                                 			recent[i].push(tag);
+                                			recent[i].push(id);
                                 		</script>
-								    <li><a href="javascript:change(${count},'picture1',recent)"><c:out value="${count}"/></a></li>
+								    <li><a href="javascript:change(${count},'picture1',recent,recent[${count}][3])"><c:out value="${count}"/></a></li>
 								    <c:set var="count" value="${count + 1}" scope="page"/>
 								</c:forEach>
                             </ul>
@@ -192,13 +196,14 @@
                                 			var i = "${count}";
                                 			var title = "${value.title}";
                                 			var description = "${value.description}";
-                                			var tag = "${value.tag}";
+                                			var id = "${value.id}";
                                 			admin.push(new Array);
                                 			admin[i].push(title);
                                 			admin[i].push(description);
                                 			admin[i].push(tag);
+                                			admin[i].push(id);
                                 		</script>
-								    <li><a href="javascript:change(${count},'picture2',admin)"><c:out value="${count}"/></a></li>
+								    <li><a href="javascript:change(${count},'picture2',admin,admin[${count}][3])"><c:out value="${count}"/></a></li>
 								    <c:set var="count" value="${count + 1}" scope="page"/>
 								</c:forEach>
 								

@@ -157,9 +157,9 @@ public class Database {
 		java.util.Date utilDate = cal.getTime();
 		java.sql.Date sqlDate = new Date(utilDate.getTime());  
 		  
-		String queryy = "insert into request (title,description,tag,url,date,userID) values ('" 
+		String queryy = "insert into request (title,description,tag,url,date,userID,selected) values ('" 
 						+ title + "','" + description + "','" + tag + "','" + path + "','" + sqlDate
-						+ "'," + "(SELECT userID from user WHERE email='" + email + "'));";
+						+ "'," + "(SELECT userID from user WHERE email='" + email + "'),'no');";
 		//code for accessing db
 		System.out.println(queryy);
 		try
@@ -198,6 +198,7 @@ public class Database {
 			  request.setDescription(resultSet.getString("description"));
 			  request.setTag(resultSet.getString("tag"));
 			  request.setDate(resultSet.getDate("date"));
+			  request.setId(resultSet.getInt("requestID"));
 			  results.add(request);
 		  }
 		  
@@ -232,6 +233,7 @@ public class Database {
 			  request.setDescription(resultSet.getString("description"));
 			  request.setTag(resultSet.getString("tag"));
 			  request.setDate(resultSet.getDate("date"));
+			  request.setId(resultSet.getInt("requestID"));
 			  results.add(request);
 		  }
 		  
