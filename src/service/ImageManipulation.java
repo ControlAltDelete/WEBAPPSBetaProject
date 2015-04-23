@@ -39,11 +39,12 @@ public class ImageManipulation {
             return null;
         }
         
-        public void convertToImage(String imageDataString, String filename){
-            try{
+        public byte[] convertToImage(String imageDataString, String filename){
+           byte[] imageByteArray = null;  
+          try{
                 //Converting a Base64 String into Image byte array 
 			
-			byte[] imageByteArray = decodeImage(imageDataString);
+			imageByteArray = decodeImage(imageDataString);
 			
 			
 			// Write a image byte array into file system  
@@ -60,6 +61,8 @@ public class ImageManipulation {
 		} catch (IOException ioe) {
 			System.out.println("Exception while reading the Image " + ioe);
 		}
+            
+            return imageByteArray;
             }
         
 

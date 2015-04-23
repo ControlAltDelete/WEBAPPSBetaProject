@@ -58,7 +58,7 @@ public class RequestController extends HttpServlet {
 		String title = null;
 		String description = null;
 		String inputFileName = null;
-		String tag = null;
+		String tag = request.getParameter("tagArea");
 		
 		Database store = new Database();
 		
