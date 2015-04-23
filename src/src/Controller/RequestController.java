@@ -32,7 +32,7 @@ public class RequestController extends HttpServlet {
     
 	private boolean isMultiPart;
     private String filePath = null;
-    private int maxFileSize = 1000 * 1024;
+    private int maxFileSize = 1000000 * 2048;
     private int memSize = 4 * 1024;
     private File file;
     /**

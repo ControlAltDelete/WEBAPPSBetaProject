@@ -67,6 +67,11 @@
    <c:set var="Registration_Status" scope="session" value="null"/>
    </c:if>
    
+   <c:if test="${Registration_Status == 'Failed'}"> 
+   <script>alert("Failed successful!");</script>
+   <c:set var="Request_Status" scope="session" value="null"/>
+   </c:if>
+   
    <c:if test="${Registration_Status == 'Exceed'}"> 
    <script>alert("Your input exceeds!");</script>
    <c:set var="Registration_Status" scope="session" value="null"/>

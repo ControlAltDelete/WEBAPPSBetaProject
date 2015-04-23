@@ -60,6 +60,12 @@ public class RegistrationController extends HttpServlet {
 			session.setAttribute("Registration_Status","Exceed");
 			response.sendRedirect("signup.jsp");
 		}
+		
+		else if (nickname.contains("'"))
+		{
+		  session.setAttribute("Registration_Status","Failed");
+          response.sendRedirect("signup.jsp");
+		}
 		else if(password.equals(confirm))
 		{
 			try {
