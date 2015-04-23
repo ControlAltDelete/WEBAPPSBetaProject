@@ -371,6 +371,7 @@ public class Database {
 				 while(resultSet.next())
 				 {
 					  Request request = new Request();
+					  request.setId(resultSet.getInt("requestID"));
 					  request.setTitle(resultSet.getString("title"));
 					  request.setDescription(resultSet.getString("description"));
 					  request.setTag(resultSet.getString("tag"));
