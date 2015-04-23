@@ -64,6 +64,8 @@
         		{
         			document.getElementById(id).innerHTML += arrayName[i][j] + "<br>";
         		}
+        		document.getElementById(id).innerHTML += 
+        			"<img src='Image.jsp?imgID="+ i +"' width='300' height = '500' border='0'>" + "<br>";
         		
         	}
         </script>
@@ -96,9 +98,6 @@
   <c:set var="Request_Status" scope="session" value="null"/>
   </c:if>
   
-  
-  
-  <img src="Image.jsp?imgID=8" width="115" border="0">
   
    <div class="container">
       <div class="row">

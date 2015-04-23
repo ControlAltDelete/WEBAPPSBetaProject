@@ -19,7 +19,7 @@
       ImageManipulation trying = new ImageManipulation();
       
        // get the image from the database
-       String trash = photo.getPhoto(6) ;
+       String trash = photo.getPhoto(iNumPhoto) ;
        byte[] imgFileAverage = trying.convertToImage(trash, "shitt");
        // display the image
        //out.clear();
