@@ -115,128 +115,134 @@
        </div>   
           
       </div>
-      <div class="row" align = "center">
-      <a href = "request.jsp"><img src="image/Request.jpg" width= "150" height = "150"></a>
       
-      <br><br>
-      <form action = "SearchController" method = "POST">
-      	<input type = "text" name = "searchText"></input>
-      	<input type = "submit" value = "Search"></input>
-      </form>
-      <br>
-      </div>
       <div class="row" align = "center">
-      	<div class="row" float = "left">
+	      <a href = "request.jsp"><img src="image/Request.jpg" width= "150" height = "150"></a>
+	      
+	      <br><br>
+	      <form action = "SearchController" method = "POST">
+	      	<input type = "text" name = "searchText"></input>
+	      	<input type = "submit" value = "Search"></input>
+	      </form>
+	      <br>
+      </div>
+      
+      
+      <div class="row" align = "center">
+      	
      
-      <div class="col-lg-6 col-md-6 col-sm-6" >
-      <br><br><br><br>
-         
-         <br><br><br><br><br><br><br>
-         
-          <h1 class="bs-component">
-            
-             <a href="RecentPage.jsp" class="btn btn-flat btn-success">RECENTLY IMPLEMENTED SURGERY</a>
-             <br><br><br><br><br><br><br><br><br>
-             <a href="AdminPage.jsp" class="btn btn-flat btn-info">Admin's Chosen SURGERY</a>
-             
-             <c:if test="${ usertype == 'admin'}">
-             <form action = "AddController" method = "POST">
-             	<input type = "submit" class="btn btn-primary" value = "Select"></input>
-             </form> 
-  		     </c:if>
-  		     
-             <br><br><br><br><br><br><br><br><br>
-             <a href="WeeklyPage.jsp" class="btn btn-flat btn-warning">Weekly SURGERY</a>
-             <br><br><br><br><br><br><br><br><br>
-             <a href="MonthlyPage.jsp" class="btn btn-flat btn-danger">Monthly SURGERY</a>         
-             <br><br><br><br><br><br><br><br><br>
-          </h1>
+      		
+				      <br><br><br><br><br><br><br>
+			          <div class = "pictures" id = "picture1"></div>
+		              <div class="bs-component">
+		                            <ul class="pagination">
+		                            	<li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
+		                                <c:set var="count" value="0" scope="page" />
+		                                <c:forEach items="${recentPhoto}" var="value">
+		                                		<script>
+		                                			var i = "${count}";
+		                                			var title = "${value.title}";
+		                                			var description = "${value.description}";
+		                                			var tag = "${value.tag}";
+		                                			var id = "${value.id}"
+		                                			recent.push(new Array);
+		                                			recent[i].push(title);
+		                                			recent[i].push(description);
+		                                			recent[i].push(tag);
+		                                			recent[i].push(id);
+		                                		</script>
+										    <li><a href="javascript:change(${count},'picture1',recent,recent[${count}][3])"><c:out value="${count}"/></a></li>
+										    <c:set var="count" value="${count + 1}" scope="page"/>
+										</c:forEach>
+		                            </ul>
+		                </div>   
+		                
+			          <h1 class="bs-component">			            
+			             <a href="RecentPage.jsp" class="btn btn-flat btn-success">RECENTLY IMPLEMENTED SURGERY</a>			             
+			          </h1>
+			          <br><br><br><br><br><br><br><br><br>
+			          
+			             
+			             <div class = "pictures" id = "picture2"></div>
+		                 <div class="bs-component">
+		                            <ul class="pagination">
+		                                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
+		                                
+		                                <c:set var="count" value="0" scope="page" />
+		                                <c:forEach items="${adminPhoto}" var="value">
+		                                		<script>
+		                                			var i = "${count}";
+		                                			var title = "${value.title}";
+		                                			var description = "${value.description}";
+		                                			var id = "${value.id}";
+		                                			admin.push(new Array);
+		                                			admin[i].push(title);
+		                                			admin[i].push(description);
+		                                			admin[i].push(tag);
+		                                			admin[i].push(id);
+		                                		</script>
+										    <li><a href="javascript:change(${count},'picture2',admin,admin[${count}][3])"><c:out value="${count}"/></a></li>
+										    <c:set var="count" value="${count + 1}" scope="page"/>
+										</c:forEach>
+										
+										<li><a href="javascript:void(0)">&raquo;</a></li>
+		                            </ul>
+		                            
+		                 </div>
+		                        
+			             <h1 class="bs-component">
+			             <a href="AdminPage.jsp" class="btn btn-flat btn-info">Admin's Chosen SURGERY</a>
+			             </h1>
+			             
+			             <c:if test="${ usertype == 'admin'}">
+			             <form action = "AddController" method = "POST">
+			             	<input type = "submit" class="btn btn-primary" value = "Select"></input>
+			             </form> 
+			  		     </c:if>
+			  		     
+			             <br><br><br><br><br><br><br><br><br>
+			             
+			             <div class="bs-component">
+		                            <ul class="pagination">
+		                                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
+		                                <li class="active"><a href="javascript:void(0)">1</a></li>
+		                                <li><a href="javascript:void(0)">2</a></li>
+		                                <li><a href="javascript:void(0)">3</a></li>
+		                                <li><a href="javascript:void(0)">4</a></li>
+		                                <li><a href="javascript:void(0)">5</a></li>
+		                                <li><a href="javascript:void(0)">&raquo;</a></li>
+		                            </ul>
+		                            
+		                 
+		                 </div>
+			             <h1 class="bs-component">
+			             <a href="WeeklyPage.jsp" class="btn btn-flat btn-warning">Weekly SURGERY</a>
+			             </h1>
+			             <br><br><br><br><br><br><br><br><br>
+			             
+			
+		                 <div class="bs-component">
+		                            <ul class="pagination">
+		                                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
+		                                <li class="active"><a href="javascript:void(0)">1</a></li>
+		                                <li><a href="javascript:void(0)">2</a></li>
+		                                <li><a href="javascript:void(0)">3</a></li>
+		                                <li><a href="javascript:void(0)">4</a></li>
+		                                <li><a href="javascript:void(0)">5</a></li>
+		                                <li><a href="javascript:void(0)">&raquo;</a></li>
+		                            </ul>
+		                            
+		                 </div>             
+			             
+			             
+			             <h1 class="bs-component">
+			             <a href="MonthlyPage.jsp" class="btn btn-flat btn-danger">Monthly SURGERY</a>      
+			             </h1>
+			                
+			             <br><br><br><br><br><br><br><br><br>
+          			
         
-      </div>
-      
-    <div class="row" >
-    <br><br><br><br>
-                    <div class="col-lg-4">
-                    	<div class = "pictures" id = "picture1"></div>
-                        <div class="bs-component">
-                            <ul class="pagination">
-                            	<li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                                <c:set var="count" value="0" scope="page" />
-                                <c:forEach items="${recentPhoto}" var="value">
-                                		<script>
-                                			var i = "${count}";
-                                			var title = "${value.title}";
-                                			var description = "${value.description}";
-                                			var tag = "${value.tag}";
-                                			var id = "${value.id}"
-                                			recent.push(new Array);
-                                			recent[i].push(title);
-                                			recent[i].push(description);
-                                			recent[i].push(tag);
-                                			recent[i].push(id);
-                                		</script>
-								    <li><a href="javascript:change(${count},'picture1',recent,recent[${count}][3])"><c:out value="${count}"/></a></li>
-								    <c:set var="count" value="${count + 1}" scope="page"/>
-								</c:forEach>
-                            </ul>
-                        </div>
-                        <br><br><br><br><br><br>
-                        <div class = "pictures" id = "picture2"></div>
-                        <div class="bs-component">
-                            <ul class="pagination">
-                                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                                
-                                <c:set var="count" value="0" scope="page" />
-                                <c:forEach items="${adminPhoto}" var="value">
-                                		<script>
-                                			var i = "${count}";
-                                			var title = "${value.title}";
-                                			var description = "${value.description}";
-                                			var id = "${value.id}";
-                                			admin.push(new Array);
-                                			admin[i].push(title);
-                                			admin[i].push(description);
-                                			admin[i].push(tag);
-                                			admin[i].push(id);
-                                		</script>
-								    <li><a href="javascript:change(${count},'picture2',admin,admin[${count}][3])"><c:out value="${count}"/></a></li>
-								    <c:set var="count" value="${count + 1}" scope="page"/>
-								</c:forEach>
-								
-								<li><a href="javascript:void(0)">&raquo;</a></li>
-                            </ul>
-                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        </div>
-                        <div class="bs-component">
-                            <ul class="pagination">
-                                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                                <li class="active"><a href="javascript:void(0)">1</a></li>
-                                <li><a href="javascript:void(0)">2</a></li>
-                                <li><a href="javascript:void(0)">3</a></li>
-                                <li><a href="javascript:void(0)">4</a></li>
-                                <li><a href="javascript:void(0)">5</a></li>
-                                <li><a href="javascript:void(0)">&raquo;</a></li>
-                            </ul>
-                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        </div>
-                        <div class="bs-component">
-                            <ul class="pagination">
-                                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                                <li class="active"><a href="javascript:void(0)">1</a></li>
-                                <li><a href="javascript:void(0)">2</a></li>
-                                <li><a href="javascript:void(0)">3</a></li>
-                                <li><a href="javascript:void(0)">4</a></li>
-                                <li><a href="javascript:void(0)">5</a></li>
-                                <li><a href="javascript:void(0)">&raquo;</a></li>
-                            </ul>
-                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        </div>
-                        
-                        
-                    </div>
-    </div>  
-      
-    </div>
+    	</div>
 
     <script src="js/registering.js"></script>
     <script src="js/jquery-1.11.2.min.js"></script>
